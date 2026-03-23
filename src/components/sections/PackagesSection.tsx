@@ -14,22 +14,27 @@ const PackagesSection: React.FC = () => {
   };
 
   return (
-    <section id="packages" className="py-20 bg-gray-50">
+    <section id="packages" className="section section-alt">
       <Container>
         <SectionTitle
           title="Nasze pakiety usług"
           subtitle="Wybierz poziom wsparcia dopasowany do Twoich potrzeb."
         />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {packages.map((pkg, index) => (
-            <Card key={index} className="flex flex-col">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">{pkg.name}</h3>
-              <p className="text-blue-600 text-sm mb-3">{pkg.forWhom}</p>
-              <p className="text-gray-600 mb-4 flex-grow">{pkg.description}</p>
-              <ul className="text-gray-600 mb-6 space-y-1">
+            <Card key={index} className={`flex flex-col h-full ${pkg.name === 'Full concierge premium' ? 'border-2 border-accent relative' : ''}`}>
+              {pkg.name === 'Full concierge premium' && (
+                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-accent text-white px-3 py-1 rounded-full text-sm font-medium">
+                  Rekomendowany
+                </div>
+              )}
+              <h3 className="mb-2">{pkg.name}</h3>
+              <p className="text-accent text-sm mb-3 font-medium">{pkg.forWhom}</p>
+              <p className="mb-4 flex-grow">{pkg.description}</p>
+              <ul className="mb-6 space-y-2 flex-grow">
                 {pkg.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-start">
-                    <span className="text-green-500 mr-2">•</span>
+                  <li key={idx} className="flex items-start text-sm">
+                    <span className="text-accent mr-2 mt-0.5">✓</span>
                     {feature}
                   </li>
                 ))}

@@ -28,20 +28,20 @@ const HowItWorksSection: React.FC = () => {
   ];
 
   return (
-    <section id="how-it-works" className="py-20">
+    <section id="how-it-works" className="section">
       <Container>
         <SectionTitle
           title="Jak to działa?"
           subtitle="Prosty proces od pomysłu do wymarzonego pobytu."
         />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((step) => (
             <Card key={step.number} className="text-center">
-              <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
+              <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
                 {step.number}
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">{step.title}</h3>
-              <p className="text-gray-600">{step.description}</p>
+              <h3 className="mb-3">{step.title}</h3>
+              <p>{step.description}</p>
             </Card>
           ))}
         </div>

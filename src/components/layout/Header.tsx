@@ -10,19 +10,17 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="sticky top-0 bg-white shadow-sm z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
-          <div className="text-2xl font-bold text-gray-900">Tenerife Flow</div>
-          <nav className="hidden md:flex space-x-8">
-            <button onClick={() => scrollToSection('hero')} className="text-gray-600 hover:text-gray-900">Start</button>
-            <button onClick={() => scrollToSection('audience')} className="text-gray-600 hover:text-gray-900">Dla kogo</button>
-            <button onClick={() => scrollToSection('packages')} className="text-gray-600 hover:text-gray-900">Pakiety</button>
-            <button onClick={() => scrollToSection('how-it-works')} className="text-gray-600 hover:text-gray-900">Jak to działa</button>
-            <button onClick={() => scrollToSection('contact')} className="text-gray-600 hover:text-gray-900">Kontakt</button>
-          </nav>
-          <Button onClick={() => scrollToSection('contact')} size="sm">Umów konsultację</Button>
-        </div>
+    <header className="header">
+      <div className="container flex justify-between items-center py-4">
+        <div className="text-2xl font-bold">Tenerife Flow</div>
+        <nav className="hidden md:flex gap-8">
+          <button onClick={() => scrollToSection('hero')} className="text-muted hover:text-primary">Start</button>
+          <button onClick={() => scrollToSection('audience')} className="text-muted hover:text-primary">Dla kogo</button>
+          <button onClick={() => scrollToSection('packages')} className="text-muted hover:text-primary">Pakiety</button>
+          <button onClick={() => scrollToSection('how-it-works')} className="text-muted hover:text-primary">Jak to działa</button>
+          <button onClick={() => scrollToSection('contact')} className="text-muted hover:text-primary">Kontakt</button>
+        </nav>
+        <Button onClick={() => scrollToSection('contact')} size="sm">Umów konsultację</Button>
       </div>
     </header>
   );
