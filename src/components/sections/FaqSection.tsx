@@ -17,23 +17,23 @@ const FaqSection: React.FC = () => {
           title="Najczęściej zadawane pytania"
           subtitle="Odpowiedzi na pytania, które słyszymy najczęściej."
         />
-        <div className="max-w-4xl mx-auto space-y-4">
+        <div className="max-w-3xl mx-auto space-y-2">
           {faqs.map((faq, index) => (
-            <div key={index} className="card border border-gray-200">
+            <div key={index} className="border-b border-gray-100 last:border-b-0">
               <button
                 onClick={() => toggleFaq(index)}
-                className="w-full text-left p-6 focus:outline-none focus:ring-2 focus:ring-accent rounded-lg"
+                className="w-full text-left py-4 px-2 focus:outline-none focus:bg-gray-50 rounded transition-colors"
               >
                 <div className="flex justify-between items-center">
-                  <h3 className="text-lg font-medium text-primary">{faq.question}</h3>
-                  <span className="text-accent text-xl">
+                  <h3 className="text-base font-medium text-primary pr-4">{faq.question}</h3>
+                  <span className="text-accent text-lg flex-shrink-0">
                     {openIndex === index ? '−' : '+'}
                   </span>
                 </div>
               </button>
               {openIndex === index && (
-                <div className="px-6 pb-6">
-                  <p className="text-muted leading-relaxed">{faq.answer}</p>
+                <div className="pb-4 px-2">
+                  <p className="text-muted leading-relaxed text-sm">{faq.answer}</p>
                 </div>
               )}
             </div>

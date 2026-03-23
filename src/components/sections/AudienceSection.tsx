@@ -1,10 +1,11 @@
 import React from 'react';
 import Container from '../ui/Container';
 import SectionTitle from '../ui/SectionTitle';
-import Card from '../ui/Card';
 import { audiences } from '../../data/audiences';
 
 const AudienceSection: React.FC = () => {
+  const icons = ['💑', '👨‍👩‍👧‍👦', '🏠', '👑'];
+
   return (
     <section id="audience" className="section">
       <Container>
@@ -12,13 +13,14 @@ const AudienceSection: React.FC = () => {
           title="Dla kogo tworzymy pobyty?"
           subtitle="Nasze usługi są dopasowane do różnych potrzeb i stylów życia."
         />
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-4 max-w-3xl mx-auto">
           {audiences.map((audience, index) => (
-            <Card key={index} className="text-center">
-              <h3 className="mb-3">{audience.title}</h3>
-              <p className="mb-4">{audience.description}</p>
-              <p className="text-primary font-medium">{audience.benefit}</p>
-            </Card>
+            <div key={index} className="card p-4 text-center hover:shadow-lg transition-shadow">
+              <div className="text-3xl mb-4">{icons[index]}</div>
+              <h3 className="mb-2 text-lg font-semibold">{audience.title}</h3>
+              <p className="mb-3 text-muted text-sm leading-relaxed">{audience.description}</p>
+              <p className="text-accent font-medium text-sm">{audience.benefit}</p>
+            </div>
           ))}
         </div>
       </Container>

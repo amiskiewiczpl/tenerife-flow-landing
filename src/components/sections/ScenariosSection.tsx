@@ -4,22 +4,10 @@ import SectionTitle from '../ui/SectionTitle';
 import { scenarios } from '../../data/scenarios';
 
 const ScenariosSection: React.FC = () => {
-  const scenarioStyles = [
-    {
-      bg: 'bg-gradient-to-br from-blue-50 to-cyan-50',
-      icon: '🏔️',
-      accent: 'border-cyan-200'
-    },
-    {
-      bg: 'bg-gradient-to-br from-orange-50 to-yellow-50',
-      icon: '🏖️',
-      accent: 'border-orange-200'
-    },
-    {
-      bg: 'bg-gradient-to-br from-green-50 to-emerald-50',
-      icon: '🏠',
-      accent: 'border-green-200'
-    }
+  const scenarioImages = [
+    'https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', // góry dla aktywnej pary
+    'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', // plaża dla rodziny
+    'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'  // apartament dla relokacji
   ];
 
   return (
@@ -29,12 +17,18 @@ const ScenariosSection: React.FC = () => {
           title="Przykładowe scenariusze pobytu"
           subtitle="Zobacz, jak mogą wyglądać spersonalizowane wyjazdy."
         />
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-4">
           {scenarios.map((scenario, index) => (
-            <div key={index} className={`card p-8 ${scenarioStyles[index].bg} ${scenarioStyles[index].accent} border-2 hover:shadow-lg transition-shadow`}>
-              <div className="text-4xl mb-4">{scenarioStyles[index].icon}</div>
-              <h3 className="mb-4 text-lg font-semibold text-primary">{scenario.title}</h3>
-              <p className="text-muted leading-relaxed">{scenario.description}</p>
+            <div key={index} className="card p-4 hover:shadow-lg transition-shadow overflow-hidden">
+              <div className="aspect-video mb-4 rounded-lg overflow-hidden">
+                <img
+                  src={scenarioImages[index]}
+                  alt={scenario.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="mb-3 text-lg font-semibold text-primary">{scenario.title}</h3>
+              <p className="text-muted leading-relaxed text-sm">{scenario.description}</p>
             </div>
           ))}
         </div>
