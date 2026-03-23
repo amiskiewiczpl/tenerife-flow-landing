@@ -1,7 +1,6 @@
 import React from 'react';
 import Container from '../ui/Container';
 import SectionTitle from '../ui/SectionTitle';
-import Card from '../ui/Card';
 import { advantages } from '../../data/advantages';
 
 const WhyUsSection: React.FC = () => {
@@ -12,12 +11,15 @@ const WhyUsSection: React.FC = () => {
           title="Dlaczego Tenerife Flow?"
           subtitle="Co wyróżnia nasze podejście do planowania pobytów."
         />
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
           {advantages.map((advantage, index) => (
-            <Card key={index}>
-              <h3 className="mb-3">{advantage.title}</h3>
-              <p>{advantage.description}</p>
-            </Card>
+            <div
+              key={index}
+              className="bg-white border border-slate-200 rounded-xl p-4 hover:shadow-lg transition-shadow duration-200"
+            >
+              <h3 className="text-lg font-semibold mb-2 text-slate-800">{advantage.title}</h3>
+              <p className="text-sm text-slate-600 leading-relaxed">{advantage.description}</p>
+            </div>
           ))}
         </div>
       </Container>

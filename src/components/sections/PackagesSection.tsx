@@ -19,30 +19,49 @@ const PackagesSection: React.FC = () => {
           title="Nasze pakiety usług"
           subtitle="Wybierz poziom wsparcia dopasowany do Twoich potrzeb."
         />
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {packages.map((pkg, index) => (
-            <div key={index} className={`card p-4 flex flex-col h-full hover:shadow-lg transition-shadow ${pkg.name === 'Full concierge premium' ? 'border-2 border-cyan-500 relative' : 'border border-gray-200'}`}>
-              {pkg.name === 'Full concierge premium' && (
-                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-cyan-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                  Rekomendowany
+        <div className="grid gap-6 md:grid-cols-2 max-w-5xl mx-auto">
+          {packages.map((pkg, index) => {
+            const isRecommended = pkg.name === 'Full concierge premium';
+            return (
+              <div
+                key={index}
+                className={`card p-6 flex flex-col transition-all duration-300 hover:shadow-xl ${
+                  isRecommended
+                    ? 'border-2 border-cyan-400 bg-gradient-to-br from-cyan-50 via-white to-white shadow-lg relative'
+                    : 'border border-slate-200 bg-white'
+                }`}
+              >
+                {isRecommended && (
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                    <span className="px-4 py-1 rounded-full text-sm font-semibold uppercase text-cyan-700 bg-cyan-100 border border-cyan-200 shadow-sm">
+                      Rekomendowany
+                    </span>
+                  </div>
+                )}
+                <div className="mb-4">
+                  <h3 className="text-xl font-bold text-slate-800 mb-1">{pkg.name}</h3>
+                  <p className="text-sm font-medium text-cyan-700">{pkg.forWhom}</p>
                 </div>
-              )}
-              <h3 className="mb-1 text-lg font-semibold">{pkg.name}</h3>
-              <p className="text-accent text-sm mb-3 font-medium">{pkg.forWhom}</p>
-              <p className="mb-4 flex-grow text-sm leading-relaxed">{pkg.description}</p>
-              <ul className="mb-6 space-y-1 flex-grow">
-                {pkg.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-start text-sm">
-                    <span className="text-cyan-500 mr-2 mt-0.5 text-xs">✓</span>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              <Button onClick={() => scrollToSection('contact')} size="sm" className="mt-auto w-full">
-                {pkg.cta}
-              </Button>
-            </div>
-          ))}
+                <p className="text-sm text-slate-600 leading-relaxed mb-4">{pkg.description}</p>
+                <ul className="mb-6 space-y-2 flex-grow">
+                  {pkg.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-start gap-2 text-sm text-slate-700">
+                      <span className="mt-1 inline-flex h-2 w-2 rounded-full bg-cyan-500 flex-shrink-0" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Button
+                  onClick={() => scrollToSection('contact')}
+                  size="sm"
+                  variant={isRecommended ? 'primary' : 'secondary'}
+                  className="w-full rounded-lg font-semibold"
+                >
+                  {pkg.cta}
+                </Button>
+              </div>
+            );
+          })}
         </div>
       </Container>
     </section>
