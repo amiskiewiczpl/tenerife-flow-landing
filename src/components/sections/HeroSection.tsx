@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '../ui/Button';
 
 const HeroSection: React.FC = () => {
+  const [imageError, setImageError] = useState(false);
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -9,77 +11,112 @@ const HeroSection: React.FC = () => {
     }
   };
 
-  // Deterministic image handling: prefer local, fallback to placeholder
-  const heroImageExists = true; // Assume we check if file exists, but since it's build-time, use try-catch or static
-  const heroSrc = heroImageExists ? new URL('../../assets/hero-tenerife.jpg', import.meta.url).href : null;
+  const heroImageUrl = new URL('../../assets/hero-tenerife.jpg', import.meta.url).href;
+
+  const HeroPlaceholder = () => (
+    <div className="w-full h-full bg-gradient-to-br from-blue-50 via-sky-100 to-blue-150 relative overflow-hidden flex items-center justify-center">
+      {/* Decorative gradient blobs */}
+      <div className="absolute top-1/4 -left-10 w-32 h-32 bg-blue-200 rounded-full opacity-20 blur-3xl" />
+      <div className="absolute bottom-1/4 -right-10 w-40 h-40 bg-sky-200 rounded-full opacity-20 blur-3xl" />
+      <div className="absolute inset-0 bg-gradient-to-t from-blue-950/5 to-transparent" />
+    </div>
+  );
 
   return (
-    <section id="hero" className="hero-bg section py-20 lg:py-28">
+    <section id="hero" className="hero-bg section py-12 md:py-16 lg:py-20">
       <div className="container">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-          {/* Left column */}
-          <div className="text-slate-100 space-y-6 lg:space-y-8">
-            <div className="inline-flex items-center gap-3 bg-white/10 text-white/90 px-3 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase border border-white/15">
-              Concierge & travel planning
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+          {/* Left column - Content */}
+          <div className="text-white flex flex-col justify-start">
+            {/* Label */}
+            <div className="mb-4 md:mb-5">
+              <span className="inline-flex items-center gap-2 bg-white/12 text-white px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase border border-white/25 backdrop-blur-sm">
+                ✨ Concierge & travel planning
+              </span>
             </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight max-w-3xl">
-              Luksusowy pobyt na Teneryfie z indywidualnym concierge
+
+            {/* H1 */}
+            <h1 className="text-5xl md:text-6xl lg:text-6xl font-black leading-[1.15] mb-4 md:mb-5 text-white">
+              Luksusowy pobyt<br className="hidden md:block" /> na Teneryfie
             </h1>
-            <p className="text-lg sm:text-xl text-slate-200 max-w-2xl leading-relaxed">
-              Zorganizujemy każdy dzień: od transferów i rezerwacji, po lokalne doświadczenia premium. Wyłącznie selektywne miejsca i pełna opieka na każdym kroku.
+
+            {/* Description */}
+            <p className="text-base md:text-lg text-white/85 leading-relaxed mb-6 md:mb-7 max-w-lg">
+              Z indywidualnym concierge zorganizujemy każdy dzień: od transferów i rezerwacji, po lokalne doświadczenia premium. Wyłącznie selektywne miejsca i pełna opieka.
             </p>
 
-            <div className="flex flex-col sm:flex-row sm:items-center gap-3">
-              <Button onClick={() => scrollToSection('contact')} size="lg" className="w-full sm:w-auto">Umów konsultację</Button>
-              <Button onClick={() => scrollToSection('packages')} variant="secondary" size="lg" className="w-full sm:w-auto">Poznaj pakiety</Button>
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-3 mb-7 md:mb-8">
+              <Button 
+                onClick={() => scrollToSection('contact')} 
+                size="lg" 
+                className="w-full sm:w-auto"
+              >
+                Umów konsultację
+              </Button>
+              <Button 
+                onClick={() => scrollToSection('packages')} 
+                variant="secondary" 
+                size="lg" 
+                className="w-full sm:w-auto"
+              >
+                Poznaj pakiety
+              </Button>
             </div>
 
-            <div className="flex flex-wrap gap-2 text-sm sm:text-base">
-              {['Dla par', 'Dla rodzin', 'Relokacja czasowa', 'Concierge premium'].map((badge) => (
-                <span key={badge} className="bg-white/12 text-white px-3 py-1.5 rounded-full border border-white/20">
+            {/* Chips/Badges */}
+            <div className="flex flex-wrap gap-2.5 mb-7 md:mb-8">
+              {['Dla par', 'Dla rodzin', 'Relokacja czasowa'].map((badge) => (
+                <span 
+                  key={badge} 
+                  className="bg-white/10 text-white/95 px-3 py-1.5 rounded-full border border-white/20 text-xs font-medium whitespace-nowrap hover:bg-white/15 transition-colors"
+                >
                   {badge}
                 </span>
               ))}
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {/* Value Points */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-2">
               {[
-                'Indywidualny plan pobytu',
-                'Lokalna wiedza i sprawdzone rekomendacje',
-                'Spokój, wygoda i oszczędność czasu'
-              ].map((item) => (
-                <div key={item} className="flex items-start gap-3 rounded-xl border border-white/20 bg-white/10 p-3">
-                  <span className="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-emerald-400/90 text-white text-sm">✓</span>
-                  <p className="text-sm sm:text-base text-slate-100 leading-tight">{item}</p>
+                { icon: '✓', title: 'Plan dopasowany', text: 'Do Twoich potrzeb i stylu' },
+                { icon: '✓', title: 'Eksperci lokalni', text: 'Znają każdy kątek Wyspy' },
+                { icon: '✓', title: 'Pełna opieka', text: 'Spokój 24/7' }
+              ].map((vp, idx) => (
+                <div key={idx} className="flex gap-3">
+                  <div className="flex-shrink-0">
+                    <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-emerald-400/20 text-emerald-300 text-sm font-bold border border-emerald-400/40">
+                      {vp.icon}
+                    </span>
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-xs md:text-sm font-semibold text-white mb-0.5">{vp.title}</p>
+                    <p className="text-xs md:text-sm text-white/75 leading-snug">{vp.text}</p>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Right column */}
-          <div className="lg:ml-8">
-            <div className="hero-media rounded-[2rem] overflow-hidden border border-white/20 shadow-[0_24px_60px_rgba(2,7,23,0.45)] bg-gradient-to-br from-blue-100 to-blue-200 aspect-[4/5]">
-              {heroSrc ? (
+          {/* Right column - Hero Image */}
+          <div className="mt-8 lg:mt-0 lg:block">
+            <div className="hero-media-frame rounded-3xl overflow-hidden border border-white/20 shadow-[0_25px_60px_rgba(0,0,0,0.4)] bg-gradient-to-br from-blue-100 to-blue-200 aspect-[3/4] lg:aspect-[9/11] relative group">
+              {!imageError ? (
                 <img
-                  src={heroSrc}
+                  src={heroImageUrl}
                   className="w-full h-full object-cover"
-                  onError={() => {}} // No fallback, just placeholder
+                  loading="eager"
+                  onError={() => setImageError(true)}
                 />
               ) : (
-                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-100 to-blue-200">
-                  <div className="text-center text-blue-600">
-                    <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-blue-200 flex items-center justify-center">
-                      <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                    <p className="text-sm font-medium">Hero Image</p>
-                  </div>
-                </div>
+                <HeroPlaceholder />
               )}
-              <div className="p-4 sm:p-6 bg-slate-950/25">
-                <p className="text-sm text-slate-100/80">Ekskluzywny dostęp do prywatnych tras, restauracji i eventów</p>
-                <p className="mt-2 text-xs text-slate-200">5⭐ ocena klientów • 100+ gotowych rekomendacji • 24/7 wsparcie</p>
+              {/* Premium overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent" />
+              {/* Corner accent */}
+              <div className="absolute top-4 right-4 w-2 h-2 bg-emerald-400 rounded-full opacity-80" />
+              <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6 bg-gradient-to-t from-slate-950/50 to-transparent backdrop-blur-sm">
+                <p className="text-xs md:text-sm text-white/90 font-medium">✨ Ekskluzywny dostęp do prywatnych lokacji</p>
               </div>
             </div>
           </div>

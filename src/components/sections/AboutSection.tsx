@@ -1,26 +1,50 @@
 import React from 'react';
 import Container from '../ui/Container';
 import SectionTitle from '../ui/SectionTitle';
-import Card from '../ui/Card';
 
 const AboutSection: React.FC = () => {
   return (
-    <section className="section pt-10 pb-12">
+    <section className="section">
       <Container>
         <SectionTitle title="O nas" />
-        <Card className="about-card max-w-3xl mx-auto text-center p-6">
-          <p className="text-base font-semibold text-slate-800 mb-3">
-            Jesteśmy butikową agencją concierge dla wymagających podróżnych.
-          </p>
-          <p className="text-sm text-slate-600 mb-3">
-            Tworzymy pobyty od A do Z: indywidualny plan, rezerwacje i wsparcie na miejscu.
-          </p>
-          <ul className="text-sm text-slate-700 space-y-2">
-            <li>Personalizacja bez kompromisów</li>
-            <li>Elitarne doświadczenia, sprawdzeni partnerzy</li>
-            <li>Całkowity spokój w trakcie wyjazdu</li>
-          </ul>
-        </Card>
+        <div className="max-w-5xl mx-auto">
+          <div className="about-card bg-white rounded-xl border border-slate-200 shadow-sm p-8 md:p-12">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+                Butikowa agencja concierge dla wymagających podróżnych
+              </h3>
+              <p className="text-lg text-slate-700 leading-relaxed max-w-3xl mx-auto">
+                Tworzymy pobyty od A do Z: indywidualny plan, rezerwacje i wsparcie na miejscu. Wyłącznie selektywne miejsca i pełna opieka.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8 mt-10">
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-14 h-14 bg-emerald-100 rounded-full mb-4">
+                  <span className="text-emerald-600 font-bold text-xl">✓</span>
+                </div>
+                <h4 className="text-lg font-bold text-slate-900 mb-2">Personalizacja</h4>
+                <p className="text-base text-slate-600">Bez kompromisów</p>
+              </div>
+
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-14 h-14 bg-blue-100 rounded-full mb-4">
+                  <span className="text-blue-600 font-bold text-xl">★</span>
+                </div>
+                <h4 className="text-lg font-bold text-slate-900 mb-2">Elitarne doświadczenia</h4>
+                <p className="text-base text-slate-600">Sprawdzeni partnerzy</p>
+              </div>
+
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-14 h-14 bg-purple-100 rounded-full mb-4">
+                  <span className="text-purple-600 font-bold text-xl">🛡️</span>
+                </div>
+                <h4 className="text-lg font-bold text-slate-900 mb-2">Całkowity spokój</h4>
+                <p className="text-base text-slate-600">W trakcie wyjazdu</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </Container>
     </section>
   );

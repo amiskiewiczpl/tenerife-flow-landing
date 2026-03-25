@@ -27,19 +27,19 @@ const HowItWorksSection: React.FC = () => {
   ];
 
   return (
-    <section id="how-it-works" className="section section-alt pt-10 pb-14">
+    <section id="how-it-works" className="section section-alt">
       <Container>
         <SectionTitle
           title="Jak to działa?"
           subtitle="Proces składa się tylko z czterech kroków — szybko, klarownie i stylowo."
         />
-        <div className="process-grid max-w-5xl mx-auto">
+        <div className="process-grid max-w-6xl mx-auto">
           {steps.map((step, index) => (
             <div key={step.number} className="process-step">
               <div className="step-marker">{step.number}</div>
               <div className="step-content">
-                <h3 className="text-lg font-semibold text-slate-800 mb-1">{step.title}</h3>
-                <p className="text-sm text-slate-600">{step.description}</p>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">{step.title}</h3>
+                <p className="text-base text-slate-700 leading-relaxed">{step.description}</p>
               </div>
               {index < steps.length - 1 && <div className="step-connector" />}
             </div>

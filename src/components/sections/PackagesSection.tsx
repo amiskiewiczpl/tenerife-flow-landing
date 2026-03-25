@@ -48,15 +48,15 @@ const PackagesSection: React.FC = () => {
                   </div>
                 )}
 
-                <div className={`px-4 sm:px-5 ${isRecommended ? 'pt-2 sm:pt-3' : 'pt-4 sm:pt-5'} pb-3 sm:pb-4`}>
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5">{pkg.name}</h3>
-                  <p className="text-xs uppercase tracking-widest font-semibold text-slate-500 mb-3">{pkg.forWhom}</p>
-                  <p className="text-sm text-slate-700 leading-relaxed mb-4">{pkg.description}</p>
+                <div className={`px-4 sm:px-5 ${isRecommended ? 'pt-2 sm:pt-3' : 'pt-3 sm:pt-4'} pb-3 sm:pb-4`}>
+                  <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-1">{pkg.name}</h3>
+                  <p className="text-xs uppercase tracking-widest font-semibold text-slate-500 mb-2">{pkg.forWhom}</p>
+                  <p className="text-xs text-slate-700 leading-relaxed mb-3">{pkg.description}</p>
 
-                  <ul className="space-y-2 mb-5">
+                  <ul className="space-y-1.5 mb-4">
                     {pkg.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5 text-sm text-slate-700">
-                        <span className={`mt-1.5 inline-flex h-2 w-2 rounded-full flex-shrink-0 ${
+                      <li key={idx} className="flex items-start gap-2 text-xs text-slate-700">
+                        <span className={`mt-1 inline-flex h-1.5 w-1.5 rounded-full flex-shrink-0 ${
                           isRecommended ? 'bg-amber-400' : 'bg-cyan-500'
                         }`} />
                         <span>{feature}</span>
@@ -68,7 +68,7 @@ const PackagesSection: React.FC = () => {
                     onClick={() => scrollToSection('contact')}
                     size="lg"
                     variant={isRecommended ? 'primary' : 'secondary'}
-                    className="w-full rounded-lg font-semibold text-sm sm:text-base"
+                    className="w-full rounded-lg font-semibold text-xs sm:text-sm"
                   >
                     {pkg.cta}
                   </Button>
