@@ -1,7 +1,6 @@
 import React from 'react';
 import Container from '../ui/Container';
 import SectionTitle from '../ui/SectionTitle';
-import Card from '../ui/Card';
 
 const HowItWorksSection: React.FC = () => {
   const steps = [
@@ -28,21 +27,22 @@ const HowItWorksSection: React.FC = () => {
   ];
 
   return (
-    <section id="how-it-works" className="section">
+    <section id="how-it-works" className="section section-alt pt-10 pb-14">
       <Container>
         <SectionTitle
           title="Jak to działa?"
-          subtitle="Prosty proces od pomysłu do wymarzonego pobytu."
+          subtitle="Proces składa się tylko z czterech kroków — szybko, klarownie i stylowo."
         />
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {steps.map((step) => (
-            <Card key={step.number} className="text-center">
-              <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
-                {step.number}
+        <div className="process-grid max-w-5xl mx-auto">
+          {steps.map((step, index) => (
+            <div key={step.number} className="process-step">
+              <div className="step-marker">{step.number}</div>
+              <div className="step-content">
+                <h3 className="text-lg font-semibold text-slate-800 mb-1">{step.title}</h3>
+                <p className="text-sm text-slate-600">{step.description}</p>
               </div>
-              <h3 className="mb-3">{step.title}</h3>
-              <p>{step.description}</p>
-            </Card>
+              {index < steps.length - 1 && <div className="step-connector" />}
+            </div>
           ))}
         </div>
       </Container>

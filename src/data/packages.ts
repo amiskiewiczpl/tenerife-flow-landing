@@ -3,7 +3,7 @@ export interface Package {
   forWhom: string;
   description: string;
   features: string[];
-  cta: string;
+  cta: 'Zapytaj o pakiet' | 'Umów konsultację';
 }
 
 export const packages: Package[] = [
@@ -17,7 +17,7 @@ export const packages: Package[] = [
       "Harmonogram dnia po dniu",
       "Lista sprawdzonych miejsc"
     ],
-    cta: "Zapytaj o plan"
+    cta: "Zapytaj o pakiet"
   },
   {
     name: "Plan + koordynacja",
@@ -29,7 +29,7 @@ export const packages: Package[] = [
       "Koordynacja atrakcji",
       "Wsparcie podczas pobytu"
     ],
-    cta: "Dowiedz się więcej"
+    cta: "Zapytaj o pakiet"
   },
   {
     name: "Full concierge premium",
@@ -53,7 +53,7 @@ export const packages: Package[] = [
       "Integracja z lokalną społecznością",
       "Wsparcie logistyczne"
     ],
-    cta: "Zapytaj o relokację"
+    cta: "Zapytaj o pakiet"
   },
   {
     name: "Pobyt dla pary z dziećmi",
@@ -65,6 +65,6 @@ export const packages: Package[] = [
       "Opieka nad najmłodszymi",
       "Spokojny czas dla rodziców"
     ],
-    cta: "Zobacz pakiet rodzinny"
+    cta: "Zapytaj o pakiet"
   }
 ];

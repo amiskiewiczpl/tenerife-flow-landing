@@ -5,21 +5,21 @@ import Card from '../ui/Card';
 
 const AboutSection: React.FC = () => {
   return (
-    <section className="section section-alt">
+    <section className="section pt-10 pb-12">
       <Container>
         <SectionTitle title="O nas" />
-        <Card className="max-w-4xl mx-auto text-center">
-          <p className="text-lg mb-4">
-            Jesteśmy butikową usługą specjalizującą się w planowaniu pobytów na Teneryfie.
+        <Card className="about-card max-w-3xl mx-auto text-center p-6">
+          <p className="text-base font-semibold text-slate-800 mb-3">
+            Jesteśmy butikową agencją concierge dla wymagających podróżnych.
           </p>
-          <p className="mb-4">
-            Nasze podejście opiera się na indywidualnym dopasowaniu — każdy wyjazd projektujemy od podstaw,
-            biorąc pod uwagę preferencje, budżet i styl życia klienta.
+          <p className="text-sm text-slate-600 mb-3">
+            Tworzymy pobyty od A do Z: indywidualny plan, rezerwacje i wsparcie na miejscu.
           </p>
-          <p>
-            Nie oferujemy masowych pakietów turystycznych. Skupiamy się na tym, by Twój pobyt na Teneryfie
-            był dokładnie taki, jakiego potrzebujesz — bez zbędnego chaosu i stresu.
-          </p>
+          <ul className="text-sm text-slate-700 space-y-2">
+            <li>Personalizacja bez kompromisów</li>
+            <li>Elitarne doświadczenia, sprawdzeni partnerzy</li>
+            <li>Całkowity spokój w trakcie wyjazdu</li>
+          </ul>
         </Card>
       </Container>
     </section>
