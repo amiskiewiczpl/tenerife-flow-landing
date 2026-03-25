@@ -5,27 +5,33 @@ export interface Advantage {
 
 export const advantages: Advantage[] = [
   {
-    title: "Indywidualne podejście",
-    description: "Każdy pobyt projektujemy od podstaw pod konkretnego klienta."
+    title: 'Plan tworzony pod Twój rytm',
+    description:
+      'Dobieramy miejsca, tempo i poziom obsługi do tego, jak naprawdę chcesz spędzić pobyt.',
   },
   {
-    title: "Znajomość realiów Teneryfy",
-    description: "Lokalna wiedza pozwala unikać błędów i odkrywać najlepsze miejsca."
+    title: 'Lokalna wiedza bez zgadywania',
+    description:
+      'Wiesz, gdzie warto być, czego unikać i które rekomendacje faktycznie są warte czasu.',
   },
   {
-    title: "Oszczędność czasu",
-    description: "Nie trać tygodni na planowanie — skup się na tym, co ważne."
+    title: 'Mniej decyzji, więcej przyjemności',
+    description:
+      'Zamiast porównywać dziesiątki opcji, dostajesz gotowy kierunek i klarowne wybory.',
   },
   {
-    title: "Mniej błędnych decyzji",
-    description: "Unikaj przepłaconych hoteli i złych lokalizacji."
+    title: 'Selekcja zamiast przypadkowości',
+    description:
+      'Pomagamy unikać przepłaconych hoteli, słabych lokalizacji i atrakcji, które tylko dobrze wyglądają w sieci.',
   },
   {
-    title: "Wsparcie po polsku",
-    description: "Komunikacja w języku polskim dla pełnego komfortu."
+    title: 'Komfort komunikacji po polsku',
+    description:
+      'Cały proces jest prosty, spokojny i czytelny, bez bariery językowej i bez chaosu organizacyjnego.',
   },
   {
-    title: "Opcje od basic do premium",
-    description: "Wybierz poziom usług dopasowany do Twojego budżetu."
-  }
+    title: 'Poziom usługi dopasowany do Ciebie',
+    description:
+      "Możesz wybrać wsparcie od uporządkowanego planu po bardziej concierge'owy standard pobytu.",
+  },
 ];

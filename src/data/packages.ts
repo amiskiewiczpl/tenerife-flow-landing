@@ -3,68 +3,89 @@ export interface Package {
   forWhom: string;
   description: string;
   features: string[];
-  cta: 'Zapytaj o pakiet' | 'Umów konsultację';
+  pricingLabel: string;
+  pricingValue: string;
+  pricingType: 'from' | 'custom';
+  cta: 'Zapytaj o pakiet' | 'Umow konsultacje';
 }
 
 export const packages: Package[] = [
   {
-    name: "Plan wyjazdu",
-    forWhom: "Dla wszystkich",
-    description: "Szczegółowy plan pobytu dopasowany do Twoich potrzeb.",
+    name: 'Plan wyjazdu',
+    forWhom: 'Dla wszystkich',
+    description: 'Szczegolowy plan pobytu dopasowany do Twoich potrzeb.',
     features: [
-      "Analiza preferencji i budżetu",
-      "Rekomendacje lokalizacji i atrakcji",
-      "Harmonogram dnia po dniu",
-      "Lista sprawdzonych miejsc"
+      'Analiza preferencji i budzetu',
+      'Rekomendacje lokalizacji i atrakcji',
+      'Harmonogram dnia po dniu',
+      'Lista sprawdzonych miejsc',
     ],
-    cta: "Zapytaj o pakiet"
+    // TODO: Replace placeholder with final starting price.
+    pricingLabel: 'Od',
+    pricingValue: 'X XXX PLN',
+    pricingType: 'from',
+    cta: 'Zapytaj o pakiet',
   },
   {
-    name: "Plan + koordynacja",
-    forWhom: "Dla par i rodzin",
-    description: "Plan plus pomoc w rezerwacjach i organizacji.",
+    name: 'Plan + koordynacja',
+    forWhom: 'Dla par i rodzin',
+    description: 'Plan plus pomoc w rezerwacjach i organizacji.',
     features: [
-      "Wszystko z planu wyjazdu",
-      "Rezerwacja noclegów i transportu",
-      "Koordynacja atrakcji",
-      "Wsparcie podczas pobytu"
+      'Wszystko z planu wyjazdu',
+      'Rezerwacja noclegow i transportu',
+      'Koordynacja atrakcji',
+      'Wsparcie podczas pobytu',
     ],
-    cta: "Zapytaj o pakiet"
+    // TODO: Replace placeholder with final starting price.
+    pricingLabel: 'Od',
+    pricingValue: 'X XXX PLN',
+    pricingType: 'from',
+    cta: 'Zapytaj o pakiet',
   },
   {
-    name: "Full concierge premium",
-    forWhom: "Dla klientów premium",
-    description: "Kompletna obsługa concierge na najwyższym poziomie.",
+    name: 'Full concierge premium',
+    forWhom: 'Dla klientow premium',
+    description: 'Kompletna obsluga concierge na najwyzszym poziomie.',
     features: [
-      "Wszystko z koordynacji",
-      "Osobisty asystent na miejscu",
-      "Ekskluzywne doświadczenia",
-      "24/7 wsparcie"
+      'Wszystko z koordynacji',
+      'Osobisty asystent na miejscu',
+      'Ekskluzywne doswiadczenia',
+      '24/7 wsparcie',
     ],
-    cta: "Umów konsultację"
+    pricingLabel: 'Forma',
+    pricingValue: 'Wycena indywidualna',
+    pricingType: 'custom',
+    cta: 'Umow konsultacje',
   },
   {
-    name: "Relokacja czasowa",
-    forWhom: "Dla dłuższych pobytów",
-    description: "Pomoc w miesięcznych lub dłuższych wyjazdach.",
+    name: 'Relokacja czasowa',
+    forWhom: 'Dla dluzszych pobytow',
+    description: 'Pomoc w miesiecznych lub dluzszych wyjazdach.',
     features: [
-      "Znajdowanie mieszkania na dłuższy termin",
-      "Organizacja codziennych spraw",
-      "Integracja z lokalną społecznością",
-      "Wsparcie logistyczne"
+      'Znajdowanie mieszkania na dluzszy termin',
+      'Organizacja codziennych spraw',
+      'Integracja z lokalna spolecznoscia',
+      'Wsparcie logistyczne',
     ],
-    cta: "Zapytaj o pakiet"
+    pricingLabel: 'Forma',
+    pricingValue: 'Wycena indywidualna',
+    pricingType: 'custom',
+    cta: 'Zapytaj o pakiet',
   },
   {
-    name: "Pobyt dla pary z dziećmi",
-    forWhom: "Dla rodzin",
-    description: "Specjalistyczna opieka nad wyjazdem rodzinnym.",
+    name: 'Pobyt dla pary z dziecmi',
+    forWhom: 'Dla rodzin',
+    description: 'Specjalistyczna opieka nad wyjazdem rodzinnym.',
     features: [
-      "Bezpieczne atrakcje dla dzieci",
-      "Rodzinne noclegi i transport",
-      "Opieka nad najmłodszymi",
-      "Spokojny czas dla rodziców"
+      'Bezpieczne atrakcje dla dzieci',
+      'Rodzinne noclegi i transport',
+      'Opieka nad najmlodszymi',
+      'Spokojny czas dla rodzicow',
     ],
-    cta: "Zapytaj o pakiet"
-  }
+    // TODO: Replace placeholder with final starting price.
+    pricingLabel: 'Od',
+    pricingValue: 'X XXX PLN',
+    pricingType: 'from',
+    cta: 'Zapytaj o pakiet',
+  },
 ];

@@ -13,8 +13,8 @@ const ProblemSection: React.FC = () => {
         />
         <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
           <article className="problem-card p-6 md:p-8 rounded-xl border border-slate-200 bg-white shadow-sm">
-            <h3 className="text-xl font-bold text-slate-900 mb-4">Kluczowe wyzwania</h3>
-            <ul className="space-y-4 text-slate-700 leading-relaxed">
+            <h3 className="problem-title text-xl font-bold text-slate-900 mb-4">Kluczowe wyzwania</h3>
+            <ul className="problem-list space-y-4 text-slate-700 leading-relaxed">
               <li className="flex items-start gap-3">
                 <span className="text-red-500 font-bold text-lg mt-0.5">✗</span>
                 <span className="text-base">Planowanie pochłania czas i angażuje energię.</span>
@@ -35,8 +35,8 @@ const ProblemSection: React.FC = () => {
           </article>
 
           <article className="problem-card p-6 md:p-8 rounded-xl border border-slate-200 bg-white shadow-sm">
-            <h3 className="text-xl font-bold text-emerald-700 mb-4">Jak to rozwiązujemy</h3>
-            <ul className="space-y-4 text-slate-700 leading-relaxed">
+            <h3 className="problem-title text-xl font-bold text-emerald-700 mb-4">Jak to rozwiązujemy</h3>
+            <ul className="problem-list space-y-4 text-slate-700 leading-relaxed">
               <li className="flex items-start gap-3">
                 <span className="text-emerald-500 font-bold text-lg mt-0.5">✓</span>
                 <span className="text-base">Przejmujemy wszystkie elementy planowania.</span>

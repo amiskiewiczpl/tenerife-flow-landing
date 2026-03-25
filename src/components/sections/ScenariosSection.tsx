@@ -75,11 +75,11 @@ const ScenariosSection: React.FC = () => {
               </div>
 
               {/* Content Container - Compact */}
-              <div className="flex-1 flex flex-col p-6">
-                <h3 className="text-lg font-bold text-slate-900 mb-3 leading-tight">
+              <div className="scenario-content flex-1 flex flex-col p-6">
+                <h3 className="scenario-title text-lg font-bold text-slate-900 mb-3 leading-tight">
                   {scenario.title}
                 </h3>
-                <p className="text-base text-slate-700 leading-relaxed flex-1">
+                <p className="scenario-description text-base text-slate-700 leading-relaxed flex-1">
                   {scenario.description}
                 </p>
               </div>
